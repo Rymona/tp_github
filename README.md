@@ -13,7 +13,7 @@ Application de calculatrice simple en Node.js utilisée pour démontrer une pipe
 - ✖️ Multiplication
 - ➗ Division (avec gestion de la division par zéro)
 
-## 🛠️ Technologies utilisées
+## 🛠️ Technologie utilisée
 
 - **Node.js 18** - Runtime JavaScript
 - **Jest** - Framework de tests
