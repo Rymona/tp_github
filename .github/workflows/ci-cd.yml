@@ -83,6 +83,8 @@ jobs:
           context: .
           push: true
           tags: ${{ env.DOCKER_IMAGE_NAME }}:latest
+          build-args: |
+            NODE_VERSION=${{ env.NODE_VERSION }}
 
       - name: Logout Docker
         if: always()
