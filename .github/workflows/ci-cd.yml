@@ -38,30 +38,29 @@ jobs:
     needs: build
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env.NODE_VERSION }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
-    - name: Install all dependencies (including dev)
-      run: npm install
+      - name: Install dependencies (including dev)
+        run: npm install
 
-    - name: Check Jest
-      run: npx jest --version
+      - name: Check Jest binary
+        run: ls -l node_modules/.bin/jest
 
-    - name: Run unit tests with coverage
-      run: npx jest --coverage
+      - name: Run unit tests with coverage
+        run: npx jest --coverage
 
-    - name: Upload coverage report
-      uses: actions/upload-artifact@v4
-      with:
-        name: coverage-report
-        path: coverage/
-        retention-days: 7
-
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 7
 
   docker:
     runs-on: ubuntu-latest
